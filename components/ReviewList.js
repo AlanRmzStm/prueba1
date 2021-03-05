@@ -8,6 +8,7 @@ app.component('review-list',{
     template:
 
     /*html*/
+    
     ` <div class="review-container">
     <h3>Reviews:</h3>
       <ul>
