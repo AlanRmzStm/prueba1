@@ -1,7 +1,7 @@
 app.component('details-display',{
     props:{
       details:{
-        type: String,
+        type: Array,
         requierd: true,
       }
     },
