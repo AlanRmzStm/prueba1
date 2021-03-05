@@ -3,7 +3,6 @@ const app = Vue.createApp({
         return {
             cart: [],
             premium: true,
-            link: 'https://www.google.com'
         }
     },
     methods: {
