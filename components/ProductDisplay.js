@@ -35,8 +35,18 @@ app.component('product-display',{
             @mouseover="updateVariant(index)" 
             :style="{ backgroundColor: variant.color }"></div>
       
-            <button class="button" :class="{ disabledButton: !inStock }" :disabled="!inStock" v-on:click="addToCart">Add to Cart</button>
-            <button class="button" @click="decrementToCart">Eliminar del Carrito</button>
+            <button 
+          class="button" 
+          :class="{ disabledButton: !inStock }" 
+          :disabled="!inStock" 
+          v-on:click="addToCart">
+          Add to Cart
+        </button>
+        <button 
+          class="button"  
+          v-on:click="deleteToCart">
+          remove from cart
+        </button>
     </div>
   </div>
 </div>`,
@@ -60,15 +70,16 @@ data() {
   }
 },
 methods: {
-  addToCart(){
-    this.cart++
-},
-decrementToCart(){
-    this.cart--;
+  addToCart() {
+    this.$emit('add-to-cart',this.variants[this.selectedVariant].id)
 },
 updateVariant(index) {
-    this.selectedVariant = index;
-}, 
+    this.selectedVariant = index
+},
+deleteToCart(){
+  this.$emit('delete-to-cart',this.variants[this.selectedVariant].id)
+}
+
 },
 computed: {
   title() {
