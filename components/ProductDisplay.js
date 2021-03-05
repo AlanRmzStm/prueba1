@@ -23,7 +23,7 @@ app.component('product-display',{
 
       <p>Shipping: {{ shipping }}</p>
 
-      <details-display :details="details"></details-display>
+      <product-details :details="details"></product-details>
       <ul>
               <li v-for="size in sizes">{{ size }}</li>
       </ul>
