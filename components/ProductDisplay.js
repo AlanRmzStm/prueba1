@@ -41,7 +41,11 @@ app.component('product-display', {
           v-on:click="addToCart">
           Add to Cart
         </button>
-
+        <button 
+          class="button"  
+          v-on:click="deleteToCart">
+          remove from cart
+        </button>
       </div>
     </div>
     <review-list v-if="reviews.length":reviews="reviews"></review-list>
@@ -63,13 +67,13 @@ app.component('product-display', {
   },
   methods: {
       addToCart() {
-          this.$emit('add-to-cart', this.variants[this.selectedVariant].id)
+          this.$emit('add-to-cart',this.variants[this.selectedVariant].id)
       },
       updateVariant(index) {
           this.selectedVariant = index
       },
-      addReview(review){
-        this.reviews.push(review)
+      deleteToCart(){
+        this.$emit('delete-to-cart',this.variants[this.selectedVariant].id)
       }
   },
 
